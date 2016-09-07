@@ -1,0 +1,10 @@
+gcc -o myprocess myprocess.c
+file myprocess
+myprocess: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=f068d6366cb3b7870af9b35da0dbc89ba54c6fee, not stripped
+gcc -static -o myprocess myprocess.c
+myprocess: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), statically linked, for GNU/Linux 2.6.32, BuildID[sha1]=8b6b1e5f543d4a057916968aab36595572794a82, not stripped
+mkdir root
+sudo chroot root/ ./myprocess
+sudo unshare -fp ./myprocess
+A running process!
+PID: 1
